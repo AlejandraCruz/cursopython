@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Lista de Productos
+{% endblock %}
+
+{% block content %}
+	<h1>Lista de productos</h1>
+	<br>
+	{% if user.is_authenticated %}
+
+		<a class="btn btn-inverse" href="{% url 'vista_agregar_producto' %}"> <li class="icon-plus"></li>Agregar un nuevo producto</a>
+
+	{% endif %}
+	{% if productos %}
+	<table class = "table table-hover">
+		<theader>
+			<tr>
+				<th>Producto</th>
+				<th>Precio</th>
+				<th>Stock</th>
+			</tr>
+		</theader>	
+		{% for p in productos %}
+			<tbody>
+				<tr>
+					<td>{{ p.nombre }}</td>
+					<td>{{ p.precio }}</td>
+					<td>{{ p.stock }}</td>
+					<td><a class="btn btn-inverse" href="/producto/{{ p.id }}" > <li class = "icon-search"></li> Ver </a></td>
+					<td><a class="btn btn-inverse" href="#" > <li class = "icon-shopping cart"></li> Comprar </a></td>
+					<td>
+						{% if user.is_authenticated %}
+							<a class = "btn btn-inverse" href="/edit/producto/{{ p.id }}"><li class = "icon-pencil"></li> Editar </a>
+						{% endif %}
+
+					</td>
+				</tr>
+			</tbody>
+		{% endfor %}
+	</table>
+
+	{% else %}
+		<h2> No existen productos activos a la venta :(</h2>
+	{% endif %}
+
+	{% if productos %}
+	<div class="pagination">
+
+		<div class="pagination pagination-centered">
+			<ul>
+				<li><a class = "btn btn-inverse" href="/productos/page/1"> << </a></li>
+				{% if productos.has_previous %}
+				<li><a class = "btn btn-inverse" href="/productos/page/{{ productos.previous_page_number }}"> Anterior </a></li>
+				{% else %}
+					<li><a class = "btn btn-inverse" href="#"> Anterior </a></li>
+				{% endif %}
+
+				{% if productos.has_next %}
+					<li><a class = "btn btn-inverse" href="/productos/page/{{ productos.next_page_number }}"> Sigiente </a></li>
+				 {% else %}
+				 	<li><a class = "btn btn-inverse" href="#"> Siguiente </a></li>
+				 {% endif %}
+				 	<li><a class = "btn btn-inverse" href="/productos/page/{{ productos.paginator.num_pages }}"> >> </a></li>
+			</ul>
+		</div>
+	</div>
+			<br>
+			<h4>Pagina {{ productos.number }} de {{ productos.paginator.num_pages }}</h4>
+	{% endif %}
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %} Registro {% endblock %}
+{% block content %}
+<center>
+	<form action="." method = "POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button  class="btn btn-inverse" type = "submit"> Registrar </button>	
+	</form>
+	<BODY BGCOLOR = "#DCEBEE"LINK ="" text = "white" VLINK = "white"> </BODY>
+</center>
+{% endblock %}

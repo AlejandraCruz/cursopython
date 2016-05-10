@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Login
+{% endblock %}	
+
+{% block content %}
+<center>
+	<form action="." method="POST" aling="center">
+	{% csrf_token %}
+	{{mensaje}}
+	{{form.as_p}}
+	<input class="btn btn-inverse" type="submit" value ="login">
+	</form>
+	<form>
+		<a href="/registro/" class = "btn btn-inverse">Registrar</a>
+	</form>
+</center>
+{% endblock %}

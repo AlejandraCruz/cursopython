@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{% block title %} Bienvenidos {% endblock %} </title>
+	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/media/bootstrap/css/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/media/css/excite-bike/jquery-ui-1.10.3.custom.css">
+
+	<script src="/media/js/ajax.js"></script>
+	<script src="/media/js/jquery.js"></script>
+	<script src="/media/js/jquery-ui.js"></script>
+	<script src="/media/bootstrap/js/bootstrap.js"></script>
+	<style type="text/css">
+		body{
+			padding-top: 60px;
+			padding-bottom: 40px;
+		}
+		.hero-unit{		padding-top: 39px;}
+		.sidebar-nav{	padding: 9px;}
+	</style>
+</head>
+	{% block css %}
+		<link real="stylesheet" type="text/css" href="/media/css/estilo.css"/>
+	{% endblock %}
+</head>
+<body>
+	<header>
+		<div ></div>
+		<center>
+		<h1 align="center"> <B> <FONT COLOR ="white" FACE ="ARIAL WHITE">  PROYECTO - CATALOGO DE PRODUCTOS </FONT>  </B> </h1>
+
+		<nav >
+			<h3 align="center">
+<body>
+
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class = "navbar-inner">
+			<a class ="brand" href="{% url 'vista_principal' %}"> Catalogo de productos </a>
+			<ul class = "nav">
+				<li><a href="/productos/page/1">Productos</a></li>
+				<li><a href="{% url 'vista_contacto' %}">Contactos</a><li>
+				<li><a href="{% url 'vista_about' %}"> Acerca de ...</a></li>
+				{% if user.is_authenticated %}
+					<li><a href="{% url 'vista_logout' %}">Cerrar Sesion</a></li>
+				{% else %}
+					<li><a href="{% url 'vista_login' %}"> Login </a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span9">
+				<div class="hero-unit">
+					{% block content %}
+					{% endblock %}
+				</div>
+			</div>
+			<div class="span3">
+				<div class="well sidebar-nav">
+					<div class="nav nav-list">
+						<li class="nav-header">Mi Catalogo </li>
+						<br>
+						<h4>Informacion</h4>
+						<div class="alert alert-info">
+							<h4>Mi Catalogo Virtual</h4>
+							<h5><p><b>Direccion </b> : Cra 17 7-65 B Valencia</p></h5>
+							<h5><p><b>Celular </b> : 3112684984</p></h5>
+							<h5><p><b>Telefono </b> : 83 93939</p></h5>
+							<h5><p>Popayan-Cauca-Colombia.</p></h5>
+						</div>
+						<div aling="center">
+							<img src= "/media/images/django.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+			<br>
+		</div>
+	</div>
+</body>
+
+</html>
+			</h3>
+		</nav>
+		</center>
+	</header>
+	<section>
+	</section>
+	<BODY BGCOLOR = LINK ="white" text = "white" VLINK = "white"> </BODY>
+	<BODY BACKGROUND="/media/images/compu">
+
+</body>
+</html>

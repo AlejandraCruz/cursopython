@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Producto
+{% endblock %}
+
+{% block content %}
+	<h1>{{ producto.nombre }}</h1>
+	{% if producto.imagen %}
+		<img src="/media/{{ producto.imagen }}" width ="80px" height ="80px">
+	{% endif %}
+	<br>
+	<p><b>Marca:</b> {{producto.marca }} </p>
+	<p><b>Descripcion:</b> {{ producto.descripcion }}</p>
+	<p><b>Precio:</b> {{ producto.precio }}</p>
+	<p><b>Stock:</b> {{ producto.stock }} unidades</p>
+	{% for c in categorias %}
+		<span class="label label-info">{{ c.nombre }}</span>
+	{% endfor %}
+	<br>
+	<a href="/productos/page/1">Mostrar la lista de Productos</a>
+{% endblock %}

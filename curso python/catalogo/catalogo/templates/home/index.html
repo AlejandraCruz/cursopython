@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+	Inicio - Bienvenidos
+{% endblock %}
+
+{% block content %}
+<center>
+	<h1><FONT COLOR ="white" FACE ="Comic Sans MS">Bienvenidos Esta es La Pagina Principal </FONT> </h1>
+	{% if user.get_profile.photo %}
+		<img src="/media/{{ user.get_profile.photo }}" width = "100px" heigth = "100px"/>
+	{% endif %}
+	{% if user.get_profile.telefono %}
+		<p>Numero Telefonico : {{ user.get_profile.telefono }}</p>
+	{% endif %}	
+</center>
+{% endblock %}
+	
